@@ -2,7 +2,7 @@
 name = "aramislab-handbook"
 version = "0.0.1"
 description = "The ARAMIS Lab Handbook"
-authors = ["Ghislain Vaillant <ghislain.vaillant@icm-institute.org>"]
+authors = ["Ghislain Vaillant <ghislain.vaillant@icm-institute.org>", "Omar El Rifai <omar.elrifai@icm-institute.org>"]
 license = "CC-BY-SA-4.0"
 
 [tool.poetry.dependencies]
