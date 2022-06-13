@@ -2,7 +2,7 @@ POETRY ?= poetry
 
 .PHONY: clean
 clean:
-	@$(RM) -rf book/_build
+	@$(RM) -rf docs/_build
 
 .PHONY: install
 install:
@@ -10,4 +10,4 @@ install:
 
 .PHONY: book
 book: clean
-	@$(POETRY) run jupyter-book build ./book
+	@$(POETRY) run jupyter-book docs ./book
