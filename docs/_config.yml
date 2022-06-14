@@ -1,9 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: The ARAMIS Lab Handbook
-author: ARAMIS team
-copyright: "2022"
+title: The Aramis Lab Handbook
+author: The Aramis Lab
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
