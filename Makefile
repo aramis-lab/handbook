@@ -1,7 +1,6 @@
 POETRY ?= poetry
 
-.PHONY: all
-all: install docs
+all: install clean docs
 
 .PHONY: clean
 clean:
