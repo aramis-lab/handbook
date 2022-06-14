@@ -52,11 +52,11 @@ Example PET image
 DICOM (`.dcm`) and NIfTi (`.nii`or `.nii.gz` if gzipped)  are data formats for storing medical images (raw data) along with meta-data in the form of a header. 
 
 
-### DICOM
+#### DICOM
 
 DICOM is the sandard file type used for most medical imaging devices (MRIs? CT, PET, etc..) The acronym stands for Digital Imaging and COmmunication in Medicine. DICOM is designed to be transferred and stored with PACS. More information can be found on their [webpage](https://www.dicomstandard.org/about).
 
-### NIfTI
+#### NIfTI
 
 The Neuroimaging Informatics Technology Initiative (NIfTI) is an open file format commonly used to store brain imaging data obtained using Magnetic Resonance Imaging methods.
 
@@ -91,13 +91,42 @@ The raw image data in a NIfTI file is saved as a single 3d image, whereas in DIC
 
 ## Visualization
 
-For the visualization of MRI data, you can use the tools embedded in neuroimaging software e.g. FreeSurfer (freeview), MRtrix (mrview), FSL (fsleyes). PET-imagers are very fond of the visualization software Vinci, you should give it a try because it works on any MRI data (An online registration is not compulsory but advised). There exists also on the App Store some alternatives like BrainView (visualization of segmented T1 images) or MRICro (viewer for nifti data).
+For the visualization of MRI data, you can use the tools embedded in neuroimagin
+g software:
+- FreeSurfer (freeview)
+- MRtrix (mrview)
+- FSL (fsleyes).
 
+
+For visualization of PET images:
+
+- Vinci (also works with MRI) 
+
+Commong alternatives found on App Store: BrainView (visualization of segmented T1 images) or MRICro (viewer for nifti data).
+
+
+
+## Image Processing
+
+### Resampling
+
+@TODO
+ Resampling and images is changing the resolution and/or dimensions of an image. Images are composed of voxels (three dimensional equivalent of a pixel). Voxels are caled isotropic if all dimensions are of equal lengths, otherwise, they are said to be anisotropic.
  
+ When resampling we can make the dimensions of the voxels either shorter (to achieve higher resolution) or longer (for lower-resolution images). Resampling is then a numeric approach to reduce or enhace the resolution through approximation algorithms.
 
-## Data Manipulation 
+ For MRI data, each voxel is associated with a number which represents the intensity of the signal measured at that voxel.
+
+### Normalizing
+
+@TODO
+
+Each person's brain is different. When performing neuroimaging studies, it is important to normalize across subjects to adjust the overall size and orientation of images
 
 
+### Tools 
+
+#### Nibabel
 A very powerful python-based tool to access neuro-imaging data (`.nii`, `.dcm` etc.) stored on our file system is [nibabel](https://nipy.org/nibabel/). You can easilly install the latest release of `nibabel` using `pip`:
 
 ```
