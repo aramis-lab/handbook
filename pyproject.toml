@@ -8,6 +8,7 @@ license = "CC-BY-SA-4.0"
 [tool.poetry.dependencies]
 python = "^3.7"
 jupyter-book = "^0.13.0"
+nibabel = "^2.3.3"
 
 [tool.poetry.dev-dependencies]
 
