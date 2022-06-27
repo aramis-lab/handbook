@@ -19,7 +19,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/pyproject.toml') }}
+          key: venv-${{ hashFiles('**/pyproject.toml') }}
       - name: Build
         run: make
       - name: Deploy
