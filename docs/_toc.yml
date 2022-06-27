@@ -4,5 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: neuroimaging
-- file: markdown-notebooks
+  - file: neuroimaging
