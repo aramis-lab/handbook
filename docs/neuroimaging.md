@@ -15,52 +15,41 @@ kernelspec:
 
 # Neuroimaging data
 
-
-
 ## Introduction
 
 Neuroimaging is the use of quantitative (computational) techniques to scientifically study the brain in a non-invasive manner. There are two broad categories neuroimaging:
 
 -  Structural imaging to quantify brain structure (e.g MRI)
 
-
 ```{figure} ../images/slices.png
 ---
 height: 150px
-name: directive-fig
 ---
 Example MRI image
 ```
-
 
 - Functional imaging, which is used to study brain function (e.g PET, fMRI, MEG)
 
 ```{figure} ../images/slices_pet.png
 ---
 height: 150px
-name: directive-fig
 ---
 Example PET image
 ```
 
-
-
-
 ## Data formats
-
 
 DICOM (`.dcm`) and NIfTi (`.nii`or `.nii.gz` if gzipped)  are data formats for storing medical images (raw data) along with meta-data in the form of a header. 
 
-
-#### DICOM
+### DICOM
 
 DICOM is the sandard file type used for most medical imaging devices (MRIs? CT, PET, etc..) The acronym stands for Digital Imaging and COmmunication in Medicine. DICOM is designed to be transferred and stored with PACS. More information can be found on their [webpage](https://www.dicomstandard.org/about).
 
-#### NIfTI
+### NIfTI
 
 The Neuroimaging Informatics Technology Initiative (NIfTI) is an open file format commonly used to store brain imaging data obtained using Magnetic Resonance Imaging methods.
 
-#### What is in the header of a NIFTI file?
+### What is in the header of a NIFTI file?
 
 We can use `fslinfo` to look at the header of a `nifti` files. 
 
@@ -80,14 +69,9 @@ cal_min        0.0000 # ""
 file_type      NIFTI-1+
 ```
 
-
-
-
 ### Differences
 
 The raw image data in a NIfTI file is saved as a single 3d image, whereas in DICOM, we have several 2d image slices. NifTi only contains a small subset of the metadata information contained in DICOMs. It is easier for machine learning applications and analyzis to use NIfTi over DICOM
-
-
 
 ## Visualization
 
@@ -97,14 +81,11 @@ g software:
 - MRtrix (mrview)
 - FSL (fsleyes).
 
-
 For visualization of PET images:
 
 - Vinci (also works with MRI) 
 
 Commong alternatives found on App Store: BrainView (visualization of segmented T1 images) or MRICro (viewer for nifti data).
-
-
 
 ## Image Processing
 
@@ -123,7 +104,6 @@ Commong alternatives found on App Store: BrainView (visualization of segmented T
 
 Each person's brain is different. When performing neuroimaging studies, it is important to normalize across subjects to adjust the overall size and orientation of images
 
-
 ### Tools 
 
 #### Nibabel
@@ -132,7 +112,6 @@ A very powerful python-based tool to access neuro-imaging data (`.nii`, `.dcm` e
 ```
 pip install nibabel 
 ```
-
 
 ```{code-cell}
 import nibabel as nib
