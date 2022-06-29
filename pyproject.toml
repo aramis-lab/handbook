@@ -6,9 +6,11 @@ authors = ["The Aramis Lab"]
 license = "CC-BY-SA-4.0"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.9,<3.11"
 jupyter-book = "^0.13.0"
 nibabel = "^4"
+nilearn = ">=0.9.1"
+matplotlib = ">=3.5.0"
 
 [tool.poetry.dev-dependencies]
 
