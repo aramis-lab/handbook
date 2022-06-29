@@ -19,22 +19,22 @@ kernelspec:
 
 Neuroimaging is the use of quantitative (computational) techniques to scientifically study the brain in a non-invasive manner. There are two broad categories neuroimaging:
 
--  Structural imaging to quantify brain structure (e.g MRI)
+-  Structural imaging to quantify brain structure (e.g {term}`MRI`)
 
 ```{figure} ../images/slices.png
 ---
 height: 150px
 ---
-Example MRI image
+Example {term}`MRI` image
 ```
 
-- Functional imaging, which is used to study brain function (e.g PET, fMRI, MEG)
+- Functional imaging, which is used to study brain function (e.g {term}`PET`, {term}`fMRI`, MEG)
 
 ```{figure} ../images/slices_pet.png
 ---
 height: 150px
 ---
-Example PET image
+Example {term}`PET` image
 ```
 
 ## Data formats
@@ -43,7 +43,7 @@ DICOM (`.dcm`) and NIfTi (`.nii`or `.nii.gz` if gzipped)  are data formats for s
 
 ### DICOM
 
-DICOM is the sandard file type used for most medical imaging devices (MRIs? CT, PET, etc..) The acronym stands for Digital Imaging and COmmunication in Medicine. DICOM is designed to be transferred and stored with PACS. More information can be found on their [webpage](https://www.dicomstandard.org/about).
+DICOM is the sandard file type used for most medical imaging devices ({term}`MRI`? CT, {term}`PET`, etc..) The acronym stands for Digital Imaging and COmmunication in Medicine. DICOM is designed to be transferred and stored with PACS. More information can be found on their [webpage](https://www.dicomstandard.org/about).
 
 ### NIfTI
 
@@ -75,15 +75,15 @@ The raw image data in a NIfTI file is saved as a single 3d image, whereas in DIC
 
 ## Visualization
 
-For the visualization of MRI data, you can use the tools embedded in neuroimagin
+For the visualization of {term}`MRI` data, you can use the tools embedded in neuroimagin
 g software:
 - FreeSurfer (freeview)
 - MRtrix (mrview)
 - FSL (fsleyes).
 
-For visualization of PET images:
+For visualization of {term}`PET` images:
 
-- Vinci (also works with MRI) 
+- Vinci (also works with {term}`MRI`) 
 
 Commong alternatives found on App Store: BrainView (visualization of segmented T1 images) or MRICro (viewer for nifti data).
 
@@ -96,7 +96,7 @@ Commong alternatives found on App Store: BrainView (visualization of segmented T
  
  When resampling we can make the dimensions of the voxels either shorter (to achieve higher resolution) or longer (for lower-resolution images). Resampling is then a numeric approach to reduce or enhace the resolution through approximation algorithms.
 
- For MRI data, each voxel is associated with a number which represents the intensity of the signal measured at that voxel.
+ For {term}`MRI` data, each voxel is associated with a number which represents the intensity of the signal measured at that voxel.
 
 ### Normalizing
 
