@@ -1,4 +1,5 @@
 POETRY ?= poetry
+CONDA ?= conda
 
 all: install docs
 
@@ -9,6 +10,10 @@ clean:
 .PHONY: docs
 docs: clean
 	@$(POETRY) run jupyter-book build docs
+
+.PHONY: env
+env:
+	$(CONDA) create -n handbook poetry
 
 .PHONY: install
 install:
