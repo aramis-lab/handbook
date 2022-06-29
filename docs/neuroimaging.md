@@ -84,7 +84,7 @@ The raw image data in a NIfTI file is saved as a single 3d image, whereas in DIC
 
 ## Visualization
 
-For the visualization of {term}`MRI` data, you can use the tools embedded in neuroimaging softwares:
+For the visualization of {term}`MRI` data, you can use the tools embedded in neuroimaging software:
 
 - FreeSurfer (freeview)
 - MRtrix (mrview)
@@ -155,7 +155,7 @@ from nilearn import image
 template = datasets.load_mni152_template()
 print(f"Template shape = {template.shape}\nTemplate affine = {template.affine}")
 
-# The image has a different shape and afffine
+# The image has a different shape and affine
 tmap_img = image.load_img(stat_img)
 print(f"original shape = {tmap_img.shape}\noriginal_affine = {tmap_img.affine}")
 
@@ -198,7 +198,7 @@ print(data.affine)
 
 #### Nilearn
 
-{{ Nilearn }} is a python package providing statistical and machine-learning tools to enable analyses of brain volumes. It also provides plotting capabilities and limited support to surface-based analysis.
+{{ Nilearn }} is a Python package providing statistical and machine-learning tools to enable analyses of brain volumes. It also provides plotting capabilities and limited support to surface-based analysis.
 
 In the ``0.7.0``release of {{ Nilearn }}, the [Nistats](https://nistats.github.io) package was merged within {{ Nilearn }} such that it now supports general linear model (GLM) based analysis and leverages the scikit-learn Python toolbox for multivariate statistics with applications such as predictive modelling, classification, decoding, or connectivity analysis.
 
