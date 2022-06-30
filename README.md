@@ -10,6 +10,12 @@ You can generate a Conda environment with Poetry with:
 make env
 ```
 
+And activate it with:
+
+```console
+conda activate ./.venv
+```
+
 ## Contributing
 
 Add or edit an article under the `docs` folder.
