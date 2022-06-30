@@ -1,31 +1,16 @@
-name: deploy
+name: 'deploy'
 
 on:
   push:
     branches:
-      - main
+      - "main"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-      - uses: snok/install-poetry@v1
-        with:
-          virtualenvs-in-project: true
-      - uses: actions/cache@v2
-        id: cache-venv
-        with:
-          path: .venv
-          key: venv-${{ hashFiles('**/pyproject.toml') }}
-      - name: Install
-        if: steps.cache-venv.outputs.cache-hit != 'true'
-        run: make install
       - name: Build
-        run: make docs
+        uses: ./.github/workflows/build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
