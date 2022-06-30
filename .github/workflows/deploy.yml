@@ -6,11 +6,11 @@ on:
       - main
 
 jobs:
+  build:
+    uses: ./.github/workflows/build
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-        uses: ./.github/workflows/build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
