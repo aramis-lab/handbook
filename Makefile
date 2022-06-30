@@ -13,7 +13,7 @@ docs: clean
 
 .PHONY: env
 env:
-	$(CONDA) create -n handbook poetry
+	$(CONDA) create -p ./.venv poetry
 
 .PHONY: install
 install:
