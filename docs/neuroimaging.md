@@ -106,7 +106,7 @@ Example of code for plotting an anatomical image in {{ Nilearn }}:
 from nilearn import datasets, plotting
 
 # Download some data using the datasets module
-haxby_dataset = datasets.fetch_haxby(data_dir=".")
+haxby_dataset = datasets.fetch_haxby(data_dir=".", verbose=0)
 
 # Plot the anatomical image
 plotting.plot_anat(haxby_dataset.anat[0], title="plot_anat")
@@ -116,7 +116,7 @@ You can also plot statistical maps:
 
 ```{code-cell}
 # Download some statistical map from neurovault
-motor_images = datasets.fetch_neurovault_motor_task()
+motor_images = datasets.fetch_neurovault_motor_task(verbose=0)
 stat_img = motor_images.images[0]
 
 # Plot it with a threshold
