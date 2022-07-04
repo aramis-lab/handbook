@@ -17,4 +17,7 @@ This page contains a glossary of common terms and acronyms used in the neuroimag
 
 [PET](https://en.wikipedia.org/wiki/Positron_emission_tomography)
 	Positron Emission Tomography (PET) is a functional imaging technique that uses radioactive substances known as radiotracers to visualize and measure changes in metabolic processes, and in other physiological activities including blood flow, regional chemical composition, and absorption.
+	
+[MEG](https://en.wikipedia.org/wiki/Magnetoencephalography) 
+	Magnetoencephalography (MEG) is a functional neuroimaging technique for mapping brain activity by recording magnetic fields produced by electrical currents occurring naturally in the brain, using very sensitive magnetometers.
 ```

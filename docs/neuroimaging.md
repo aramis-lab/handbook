@@ -28,7 +28,7 @@ height: 150px
 Example {term}`MRI` image
 ```
 
-- Functional imaging, which is used to study brain function (e.g {term}`PET`, {term}`fMRI`, MEG)
+- Functional imaging, which is used to study brain function (e.g {term}`PET`, {term}`fMRI`, {term}`MEG`)
 
 ```{figure} ../images/slices_pet.png
 ---
