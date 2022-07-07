@@ -1,9 +1,13 @@
 name: build-and-deploy
 
 on:
+  pull_request:
   push:
     branches:
       - main
+
+env:
+  NILEARN_DATA: /home/runner/test_data_repo/
 
 jobs:
   build-and-deploy:
@@ -21,11 +25,17 @@ jobs:
         with:
           path: .venv
           key: venv-${{ hashFiles('**/pyproject.toml') }}
+      - uses: actions/cache@v2
+        id: nilearn-data
+        with:
+          path: $NILEARN_DATA
+          key: nilearn_data
       - name: Install
         if: steps.cache-venv.outputs.cache-hit != 'true'
         run: make install
       - name: Build
-        run: make docs
+        run: |
+          make docs
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

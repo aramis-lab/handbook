@@ -106,7 +106,7 @@ Example of code for plotting an anatomical image in {{ Nilearn }}:
 from nilearn import datasets, plotting
 
 # Download some data using the datasets module
-haxby_dataset = datasets.fetch_haxby(data_dir=".", verbose=0)
+haxby_dataset = datasets.fetch_haxby(verbose=3)
 
 # Plot the anatomical image
 plotting.plot_anat(haxby_dataset.anat[0], title="plot_anat")
@@ -187,13 +187,18 @@ pip install nibabel
 Example of reading a nifti image using {{ Nibabel }}:
 
 ```{code-cell}
+import os
+from pathlib import Path
 import nibabel as nib
 
-data = nib.load("./haxby2001/subj2/anat.nii.gz")
+print(os.environ)
+print(os.getenv("NILEARN_DATA"))
+#data_dir = Path(os.getenv('NILEARN_DATA'))
+#data = nib.load(data_dir / Path("/haxby2001/subj2/anat.nii.gz"))
 
 # We have access to the image data 
-print(data.shape)
-print(data.affine)
+#print(data.shape)
+#print(data.affine)
 ```
 
 #### Nilearn
