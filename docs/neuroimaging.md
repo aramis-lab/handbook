@@ -188,17 +188,14 @@ Example of reading a nifti image using {{ Nibabel }}:
 
 ```{code-cell}
 import os
-from pathlib import Path
 import nibabel as nib
 
-print(os.environ)
-print(os.getenv("NILEARN_DATA"))
-#data_dir = Path(os.getenv('NILEARN_DATA'))
-#data = nib.load(data_dir / Path("/haxby2001/subj2/anat.nii.gz"))
+data_dir = os.getenv("NILEARN_DATA")
+data = nib.load(data_dir + "/haxby2001/subj2/anat.nii.gz")
 
 # We have access to the image data 
-#print(data.shape)
-#print(data.affine)
+print(data.shape)
+print(data.affine)
 ```
 
 #### Nilearn
