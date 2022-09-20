@@ -6,7 +6,7 @@ authors = ["The Aramis Lab"]
 license = "CC-BY-SA-4.0"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
+python = ">=3.8,<3.12"
 jupyter-book = "^0.13.0"
 nibabel = "^4"
 nilearn = {version = "^0.9.1", extras = ["plotting"]}
