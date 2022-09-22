@@ -11,9 +11,18 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+substitutions:
+  Nibabel: "[Nibabel](https://nipy.org/nibabel/)"
+  Nilearn: "[Nilearn](https://nilearn.github.io/)"
 ---
 
 # Neuroimaging data
+
+```{code-cell}
+:tags: [hide-input]
+import warnings
+warnings.filterwarnings("ignore")
+```
 
 ## Introduction
 
@@ -75,8 +84,8 @@ The raw image data in a NIfTI file is saved as a single 3d image, whereas in DIC
 
 ## Visualization
 
-For the visualization of {term}`MRI` data, you can use the tools embedded in neuroimagin
-g software:
+For the visualization of {term}`MRI` data, you can use the tools embedded in neuroimaging software:
+
 - FreeSurfer (freeview)
 - MRtrix (mrview)
 - FSL (fsleyes).
@@ -86,6 +95,45 @@ For visualization of {term}`PET` images:
 - Vinci (also works with {term}`MRI`) 
 
 Commong alternatives found on App Store: BrainView (visualization of segmented T1 images) or MRICro (viewer for nifti data).
+
+### Visualization in Python
+
+In addition, some Python packages like {{ Nilearn }} provide plotting modules to quickly look at your images without exiting Python.
+
+Example of code for plotting an anatomical image in {{ Nilearn }}:
+
+```{code-cell}
+from nilearn import datasets, plotting
+
+# Download some data using the datasets module
+haxby_dataset = datasets.fetch_haxby(verbose=3)
+
+# Plot the anatomical image
+plotting.plot_anat(haxby_dataset.anat[0], title="plot_anat")
+```
+
+You can also plot statistical maps:
+
+```{code-cell}
+# Download some statistical map from neurovault
+motor_images = datasets.fetch_neurovault_motor_task(verbose=0)
+stat_img = motor_images.images[0]
+
+# Plot it with a threshold
+plotting.plot_stat_map(
+    stat_img, threshold=3,
+    title="plot_stat_map",
+    cut_coords=[36, -27, 66],
+)
+```
+
+And visualize them in an interactive way using the ``view_*`` familly of functions:
+
+```{code-cell}
+view = plotting.view_img(stat_img, threshold=3)
+view
+```
+
 
 ## Image Processing
 
@@ -98,6 +146,26 @@ Commong alternatives found on App Store: BrainView (visualization of segmented T
 
  For {term}`MRI` data, each voxel is associated with a number which represents the intensity of the signal measured at that voxel.
 
+Example of image resampling in Python:
+
+```{code-cell}
+from nilearn import image
+
+# Download the MNI152 template
+template = datasets.load_mni152_template()
+print(f"Template shape = {template.shape}\nTemplate affine = {template.affine}")
+
+# The image has a different shape and affine
+tmap_img = image.load_img(stat_img)
+print(f"original shape = {tmap_img.shape}\noriginal_affine = {tmap_img.affine}")
+
+# Resample the image to the MNI152 template
+resampled_stat_img = image.resample_to_img(stat_img, template)
+print(f"resampled shape = {resampled_stat_img.shape}\nresampled affine = {resampled_stat_img.affine}")
+```
+
+For a full example of how to resample an image to a template, please refer to this [Nilearn tutorial](https://nilearn.github.io/stable/auto_examples/06_manipulating_images/plot_resample_to_template.html#sphx-glr-auto-examples-06-manipulating-images-plot-resample-to-template-py).
+
 ### Normalizing
 
 @TODO
@@ -107,16 +175,40 @@ Each person's brain is different. When performing neuroimaging studies, it is im
 ### Tools 
 
 #### Nibabel
-A very powerful python-based tool to access neuro-imaging data (`.nii`, `.dcm` etc.) stored on our file system is [nibabel](https://nipy.org/nibabel/). You can easilly install the latest release of `nibabel` using `pip`:
+
+A very powerful python-based tool to access neuro-imaging data (`.nii`, `.dcm` etc.) stored on our file system is {{ Nibabel }}.
+
+You can easilly install the latest release of {{ Nibabel }} using `pip`:
 
 ```
 pip install nibabel 
 ```
 
-```{code-cell}
-import nibabel as nib
+Example of reading a nifti image using {{ Nibabel }}:
 
-data = nib.load('example_file.nii')
+```{code-cell}
+import os
+import nibabel as nib
+from nilearn import datasets
+
+data_dir = datasets.utils.get_data_dirs()[0]
+data = nib.load(f"{data_dir}/haxby2001/subj2/anat.nii.gz")
+
+# We have access to the image data 
+print(data.shape)
+print(data.affine)
+```
+
+#### Nilearn
+
+{{ Nilearn }} is a Python package providing statistical and machine-learning tools to enable analyses of brain volumes. It also provides plotting capabilities and limited support to surface-based analysis.
+
+In the ``0.7.0``release of {{ Nilearn }}, the [Nistats](https://nistats.github.io) package was merged within {{ Nilearn }} such that it now supports general linear model (GLM) based analysis and leverages the scikit-learn Python toolbox for multivariate statistics with applications such as predictive modelling, classification, decoding, or connectivity analysis.
+
+You can easilly install the latest release of {{ Nilearn }} using `pip`:
+
+```
+pip install nilearn
 ```
 
 ### Neuro-imaging softwares
