@@ -7,9 +7,9 @@ license = "CC-BY-SA-4.0"
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
-jupyter-book = "^0.13.0"
+jupyter-book = "^0.13"
 nibabel = "^4"
-nilearn = {version = "^0.9.1", extras = ["plotting"]}
+nilearn = {version = "^0.9", extras = ["plotting"]}
 
 [tool.poetry.dev-dependencies]
 
