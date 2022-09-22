@@ -189,9 +189,10 @@ Example of reading a nifti image using {{ Nibabel }}:
 ```{code-cell}
 import os
 import nibabel as nib
+from nilearn import datasets
 
-data_dir = os.getenv("NILEARN_DATA")
-data = nib.load(data_dir + "/haxby2001/subj2/anat.nii.gz")
+data_dir = datasets.utils.get_data_dirs()[0]
+data = nib.load(f"{data_dir}/haxby2001/subj2/anat.nii.gz")
 
 # We have access to the image data 
 print(data.shape)
