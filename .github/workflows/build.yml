@@ -11,14 +11,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
       - uses: snok/install-poetry@v1
         with:
           virtualenvs-in-project: true
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
+        id: cache-nilearn-data
+        with:
+          path: /home/runner/.nilearn_data
+          key: nilearn-data
+      - uses: actions/cache@v3
         id: cache-venv
         with:
           path: .venv
@@ -26,11 +29,6 @@ jobs:
       - name: Install
         if: steps.cache-venv.outputs.cache-hit != 'true'
         run: make install
-      - uses: actions/cache@v2
-        id: nilearn-data
-        with:
-          path: /home/runner/.nilearn_data
-          key: nilearn_data
       - name: Build
         run: make docs
       - name: Upload Artifact
