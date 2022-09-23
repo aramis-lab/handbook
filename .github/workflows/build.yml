@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
       - uses: snok/install-poetry@v1
         with:
           virtualenvs-in-project: true
@@ -25,7 +27,7 @@ jobs:
         id: cache-venv
         with:
           path: .venv
-          key: venv-${{ hashFiles('**/pyproject.toml') }}
+          key: venv-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/pyproject.toml') }}
       - name: Install
         if: steps.cache-venv.outputs.cache-hit != 'true'
         run: make install
