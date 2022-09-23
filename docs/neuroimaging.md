@@ -30,7 +30,7 @@ Neuroimaging is the use of quantitative (computational) techniques to scientific
 
 -  Structural imaging to quantify brain structure (e.g {term}`MRI`)
 
-```{figure} ../images/slices.png
+```{figure} images/slices.png
 ---
 height: 150px
 ---
@@ -39,7 +39,7 @@ Example {term}`MRI` image
 
 - Functional imaging, which is used to study brain function (e.g {term}`PET`, {term}`fMRI`, {term}`MEG`)
 
-```{figure} ../images/slices_pet.png
+```{figure} images/slices_pet.png
 ---
 height: 150px
 ---
