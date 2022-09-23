@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: 00_welcome
 chapters:
-  - file: neuroimaging
-  - file: glossary
+  - file: 01_neuroimaging
+  - file: 99_glossary
