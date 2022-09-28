@@ -2,19 +2,7 @@
 
 ## Getting started
 
-This project requires [Poetry](https://python-poetry.org).
-
-You can generate a Conda environment with Poetry with:
-
-```console
-make env
-```
-
-And activate it with:
-
-```console
-conda activate ./.venv
-```
+This project requires [Poetry](https://python-poetry.org/docs/#installation).
 
 ## Contributing
 
