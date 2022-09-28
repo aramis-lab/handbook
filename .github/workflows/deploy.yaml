@@ -28,22 +28,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-in-project: true
-
-      - name: Cache virtualenv
-        id: cache-venv
-        uses: actions/cache@v3
-        with:
-          path: .venv
-          key: venv-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/pyproject.toml') }}
+          cache: poetry
 
       - name: Cache Nilearn data
         id: cache-nilearn-data
@@ -52,12 +44,8 @@ jobs:
           path: /home/runner/.nilearn_data
           key: nilearn-data
 
-      - name: Install dependencies
-        if: steps.cache-venv.outputs.cache-hit != 'true'
-        run: make install
-
       - name: Build handbook
-        run: make docs
+        run: make
 
       - name: Upload handbook
         uses: actions/upload-artifact@v3
