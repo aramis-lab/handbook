@@ -1,6 +1,6 @@
 POETRY ?= poetry
-CONDA ?= conda
 
+.PHONY: all
 all: install docs
 
 .PHONY: check-lock
