@@ -3,6 +3,10 @@ CONDA ?= conda
 
 all: install docs
 
+.PHONY: check-lock
+check-lock:
+	@$(POETRY) lock --check
+
 .PHONY: clean
 clean:
 	@$(RM) -rf docs/_build
@@ -12,7 +16,7 @@ docs: clean
 	@$(POETRY) run jupyter-book build docs
 
 .PHONY: install
-install:
+install: check-lock
 	@$(POETRY) install
 
 .PHONY: update
